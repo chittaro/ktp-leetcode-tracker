@@ -13,10 +13,7 @@ server = app.server
 app.title = f'KTP LeetCode Tracker'
 
 
-app.layout = [html.Div([
-    html.H1("Hello, Dash!"),
-    html.P("This is a paragraph."),
-])]
+app.layout = html.H1("Hello, Dash!")
 
 if __name__ == '__main__':
-     app.run(debug=True)
+    app.run(debug=True)
