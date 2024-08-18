@@ -1,13 +1,19 @@
 from dash import Dash, html
 import pandas as pd
+import plotly.express as px
 
 
-df = pd.DataFrame({"Monday": {"Easy": 10, "Medium": 5, "Hard": 2}, "Tuesday": {"Easy": 14, "Medium": 6, "Hard": 2}})
+df = pd.DataFrame(
+    [["11/2", 5, "Easy"], ["11/2", 2, "Medium"], ["11/3", 6, "Easy"], ["11/3", 10, "Medium"]]
+, columns=["Date", "Count", "Difficulty"])
+fig = px.area(df, x="Date", y="Count", color="Difficulty")
 
 app = Dash(__name__, external_stylesheets=['style.css'])
-app.title('KTP LeetCode Tracker')
+server = app.server
+app.title = f'KTP LeetCode Tracker'
+
 
 app.layout = [html.Div(children='Hello World')]
 
 if __name__ == '__main__':
-    app.run(debug=True)
+     app.run(debug=True)
